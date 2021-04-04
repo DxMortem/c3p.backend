@@ -31,13 +31,21 @@ CREATE TABLE c3p.inspection
     client        INT REFERENCES c3p.client (client_id),
     employee      INT REFERENCES c3p.employee (employee_id),
     inspector     INT REFERENCES c3p.employee (employee_id),
-    activity      INT REFERENCES c3p.activity (activity_id),
     start_date    TIMESTAMP,
     finish_date   TIMESTAMP,
     state         varchar(36),
-    comments      varchar(100)
+    novelty       BOOLEAN
 );
 
+CREATE TABLE c3p.inspection_activity
+(
+    inspection_activity_id varchar(36) PRIMARY KEY,
+    inspection_id varchar(36) REFERENCES c3p.inspection (inspection_id),
+    activity_id   INT REFERENCES c3p.activity (activity_id),
+    novelty       BOOLEAN,
+    comments      varchar(100)
+
+);
 GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA c3p TO c3p;
 
 GRANT SELECT ON ALL TABLES IN SCHEMA c3p TO grafana;
@@ -45,7 +53,8 @@ GRANT SELECT ON ALL TABLES IN SCHEMA c3p TO grafana;
 
 INSERT INTO c3p.client
 VALUES (1, 'Conjunto el prado', 'av siempre viva 123', '3211231232', 'conjuntoelprado@gmail.com', NOW()),
-       (2, 'Conjunto paseo de San Diego', 'av siempre viva 1234', '3211231332', 'conjuntopaseosandiego@gmail.com', NOW());
+       (2, 'Conjunto paseo de San Diego', 'av siempre viva 1234', '3211231332', 'conjuntopaseosandiego@gmail.com',
+        NOW());
 
 INSERT INTO c3p.employee
 VALUES (1, 'Supervisor', '3211231232', NOW(), true),
