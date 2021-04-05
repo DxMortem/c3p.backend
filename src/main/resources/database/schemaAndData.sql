@@ -92,4 +92,4 @@ INSERT INTO c3p.inspection_activity
 VALUES ('23452aa0-46e2-4d9e-b530-c9d49199eee1', '23452aa0-46e2-4d9e-b530-c9d49199efc4', 1, TRUE, 'comment'),
        ('23452aa0-46e2-4d9e-b530-c9d49199eee2', '23452aa0-46e2-4d9e-b530-c9d49199efc4', 2, FALSE, NULL),
        ('23452aa0-46e2-4d9e-b530-c9d49199eee3', '23452aa0-46e2-4d9e-b530-c9d49199efc4', 3, FALSE, NULL),
-       ('23452aa0-46e2-4d9e-b530-c9d49199eee3', '23452aa0-46e2-4d9e-b530-c9d49199efc5', 1, FALSE, NULL);
+       ('23452aa0-46e2-4d9e-b530-c9d49199eee4', '23452aa0-46e2-4d9e-b530-c9d49199efc5', 1, FALSE, NULL);
