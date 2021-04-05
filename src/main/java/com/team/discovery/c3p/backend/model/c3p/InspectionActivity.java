@@ -30,8 +30,8 @@ public class InspectionActivity {
     @JoinColumn(name = "activity_id", referencedColumnName = "activity_id")
     private Activity activityId;
 
-    @Column(name = "novelty", nullable = false)
-    private Boolean novelty;
+    @Column(name = "improvement_action", nullable = false)
+    private Boolean improvementAction;
 
     @Column(name = "comments", nullable = false)
     private String comments;
