@@ -1,0 +1,19 @@
+# # config file version
+apiVersion: 1
+
+# # list of datasources to insert/update depending
+# # on what's available in the database
+datasources:
+ - name: C3PPostgreSQL
+   type: postgres
+   url: C3PPostgreSQL
+   password: c3p
+   user: grafana
+   database: c3p
+   isDefault: true
+   version: 1
+   editable: true
+   jsonData:
+     sslmode: "disable"
+     postgresVersion: 906
+     timescaledb: false

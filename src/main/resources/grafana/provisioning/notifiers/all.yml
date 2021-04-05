@@ -1,0 +1,13 @@
+# # config file version
+apiVersion: 1
+
+notifiers:
+  - name: default-teams-channel
+    type: teams
+    is_default: true
+    send_reminder: true
+    frequency: 5m
+    uid: notifier1
+    settings:
+      uploadImage: true
+      url: https://livejaverianaedu.webhook.office.com/webhookb2/760bbd3c-2202-4eb9-9a30-30c450feb2a7@daf7990e-8a3f-409c-9b76-2a5475098000/IncomingWebhook/690d0941b32c425ba83613727836ece8/b0e2c1bf-a036-4585-b8a6-6be73f6681a5

@@ -1,0 +1,6 @@
+- name: 'C3P Dashboard'
+  org_id: 1
+  folder: ''
+  type: 'file'
+  options:
+    folder: '/var/lib/grafana/dashboards'
