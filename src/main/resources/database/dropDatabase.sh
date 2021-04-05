@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 SUFFIX="/src/main/resources/database"
 PWD="$(pwd)"
 TARGET="${PWD%"$SUFFIX"}"/target
