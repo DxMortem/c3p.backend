@@ -40,14 +40,17 @@ CREATE TABLE c3p.inspection
 CREATE TABLE c3p.inspection_activity
 (
     inspection_activity_id varchar(36) PRIMARY KEY,
-    inspection_id varchar(36) REFERENCES c3p.inspection (inspection_id),
-    activity_id   INT REFERENCES c3p.activity (activity_id),
-    novelty       BOOLEAN,
-    comments      varchar(100)
+    inspection_id          varchar(36) REFERENCES c3p.inspection (inspection_id),
+    activity_id            INT REFERENCES c3p.activity (activity_id),
+    improvement_action     BOOLEAN,
+    comments               varchar(100)
 
 );
+
+GRANT USAGE ON SCHEMA c3p TO c3p;
 GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA c3p TO c3p;
 
+GRANT USAGE ON SCHEMA c3p TO grafana;
 GRANT SELECT ON ALL TABLES IN SCHEMA c3p TO grafana;
 
 
@@ -78,3 +81,15 @@ VALUES (1, 'Shut de basura'),
        (13, 'Salon Comunal'),
        (14, 'Presentacion personal');
 
+INSERT INTO c3p.inspection
+VALUES ('23452aa0-46e2-4d9e-b530-c9d49199efc1', 1, 2, 1, NOW(), NULL, 'IN_PROGRESS', FALSE)
+     , ('23452aa0-46e2-4d9e-b530-c9d49199efc2', 1, 2, 1, NULL, NULL, 'PROGRAMMED', FALSE)
+     , ('23452aa0-46e2-4d9e-b530-c9d49199efc3', 1, 2, 1, NOW() - INTERVAL '1 days', NOW(), 'FINISHED', FALSE)
+     , ('23452aa0-46e2-4d9e-b530-c9d49199efc4', 1, 2, 1, NOW() - INTERVAL '3 days', NOW(), 'FINISHED', TRUE)
+     , ('23452aa0-46e2-4d9e-b530-c9d49199efc5', 1, 2, 1, NOW() - INTERVAL '4 days', NOW(), 'FINISHED', TRUE);
+
+INSERT INTO c3p.inspection_activity
+VALUES ('23452aa0-46e2-4d9e-b530-c9d49199eee1', '23452aa0-46e2-4d9e-b530-c9d49199efc4', 1, TRUE, 'comment'),
+       ('23452aa0-46e2-4d9e-b530-c9d49199eee2', '23452aa0-46e2-4d9e-b530-c9d49199efc4', 2, FALSE, NULL),
+       ('23452aa0-46e2-4d9e-b530-c9d49199eee3', '23452aa0-46e2-4d9e-b530-c9d49199efc4', 3, FALSE, NULL),
+       ('23452aa0-46e2-4d9e-b530-c9d49199eee3', '23452aa0-46e2-4d9e-b530-c9d49199efc5', 1, FALSE, NULL);

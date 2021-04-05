@@ -5,10 +5,15 @@ SUFFIX="/src/main/resources/database"
 PWD="$(pwd)"
 TARGET="${PWD%"$SUFFIX"}"/target
 
+if ! docker network ls --format '{{.Name}}' | grep -w C3PNetwork &> /dev/null;
+then
+  echo "Creating Network..."
+  docker network create C3PNetwork
+fi
 if ! docker ps --format '{{.Names}}' | grep -w C3PPostgreSQL &> /dev/null;
 then
   echo "Starting docker container..."
-  docker run -d --name C3PPostgreSQL -p 10017:5432 -e POSTGRES_PASSWORD=c3p -v "${TARGET}"/psql/data:/var/lib/postgresql/data postgres:9.6-alpine
+  docker run -d --network C3PNetwork --name C3PPostgreSQL -p 10017:5432 -e POSTGRES_PASSWORD=c3p -v "${TARGET}"/psql/data:/var/lib/postgresql/data postgres:9.6-alpine
 
   echo "Waiting for PostgreSQL start on docker container..."
   sleep 30s
