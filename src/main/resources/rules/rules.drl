@@ -6,19 +6,19 @@ rule "Offer for Prado"
 	when
 		activityObject: Activity(name=="Conjunto el Prado")
 	then
-		activityObject.setId(1);
+		activityObject.setId(2);
 	end
 
 rule "Offer for SanDiego"
 	when
 		activityObject: Activity(name=="Conjunto Paseo de San Diego")
 	then
-		activityObject.setId(2);
+		activityObject.setId(3);
 	end
 
 rule "Offer for Torres"
     when
         activityObject: Activity(name=="Torres de Aranjuez")
     then
-        activityObject.setId(3);
+        activityObject.setId(1);
     end
