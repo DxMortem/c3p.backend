@@ -57,7 +57,8 @@ GRANT SELECT ON ALL TABLES IN SCHEMA c3p TO grafana;
 INSERT INTO c3p.client
 VALUES (1, 'Conjunto el prado', 'av siempre viva 123', '3211231232', 'conjuntoelprado@gmail.com', NOW()),
        (2, 'Conjunto paseo de San Diego', 'av siempre viva 1234', '3211231332', 'conjuntopaseosandiego@gmail.com',
-        NOW());
+        NOW()),
+        (3, 'Torres de Aranjuez', 'av siempre viva 12345', '321123133234', 'torres@gmail.com');
 
 INSERT INTO c3p.employee
 VALUES (1, 'Supervisor', '3211231232', NOW(), true),
